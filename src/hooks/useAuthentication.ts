@@ -5,8 +5,13 @@ const auth = getAuth();
 
 export const useAuthentication = () => {
   const [user, setUser] = useState<User>()
+
   useEffect(() => onAuthStateChanged(auth, v => {
     setUser(v || undefined)
   }), [])
-  return {user};
+
+  const signOut = () => {
+    auth.signOut().then(() => setUser(undefined))
+  }
+  return {user, signOut};
 }
