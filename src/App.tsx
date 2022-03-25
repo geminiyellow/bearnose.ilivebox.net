@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
+import { Provider } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import './firebase/init'
 
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
@@ -14,8 +16,10 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+        <Provider>
+          <Navigation colorScheme={colorScheme}/>
+          <StatusBar/>
+        </Provider>
       </SafeAreaProvider>
     );
   }
