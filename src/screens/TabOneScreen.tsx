@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Button } from "react-native-paper";
-import { Github } from "../components/Auth";
+import { Email, Github } from "../components/Auth";
 import { Text, View } from '../components/Themed';
 import { useAuthentication } from "../hooks/useAuthentication";
 import { RootTabScreenProps } from '../types';
@@ -11,6 +11,7 @@ export default function TabOneScreen({navigation}: RootTabScreenProps<'TabOne'>)
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
+      {user ? null : <Email/>}
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
       {user ? null : <Github/>}
       {user ? <Text>Success</Text> : null}
