@@ -1,31 +1,39 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { useState } from "react";
+import { getAuth } from "firebase/auth";
+import { useMemo, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, TextInput } from "react-native-paper";
+import { register } from "../../firebase/register";
 
 const auth = getAuth()
 
 const SignUp = () => {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState({value: '', confirm: ''})
   const [secure, setSecure] = useState({value: true, confirm: true})
-  const onSubmitPressed = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password.value)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  const disabled = useMemo(() => !password.value || password.value !== password.confirm, [password])
+  const onSubmitPressed = async () => await register(auth, email, password.value, name)
   return (
     <View>
+      <TextInput
+        label="Name"
+        value={name}
+        onChangeText={v => setName(v)}
+        dense
+        mode="outlined"
+        autoComplete="name"
+        textContentType="username"
+        returnKeyType="next"
+        autoCapitalize="none"
+      />
       <TextInput
         label="Email"
         value={email}
         onChangeText={v => setEmail(v)}
         dense
         mode="outlined"
-        autoComplete="username"
-        textContentType="username"
+        autoComplete="email"
+        textContentType="emailAddress"
         returnKeyType="next"
         keyboardType="email-address"
         autoCapitalize="none"
@@ -64,7 +72,7 @@ const SignUp = () => {
         returnKeyType="done"
         autoCapitalize="none"
       />
-      <Button mode="contained" style={styles.submit} onPress={onSubmitPressed}>SignUp</Button>
+      <Button mode="contained" style={styles.submit} disabled={disabled} onPress={onSubmitPressed}>SignUp</Button>
     </View>
   )
 }

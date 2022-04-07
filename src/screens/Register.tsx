@@ -3,7 +3,7 @@ import { SignUp } from "../components/Auth";
 
 import { Text, View } from '../components/Themed';
 
-export default function TabTwoScreen() {
+export default function Register() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab Two</Text>

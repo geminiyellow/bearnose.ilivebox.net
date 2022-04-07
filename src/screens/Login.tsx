@@ -5,9 +5,9 @@ import { Text, View } from '../components/Themed';
 import { useAuthentication } from "../hooks/useAuthentication";
 import { RootTabScreenProps } from '../types';
 
-export default function TabOneScreen({navigation}: RootTabScreenProps<'TabOne'>) {
+export default function Login({navigation}: RootTabScreenProps<'TabOne'>) {
   const {user, signOut} = useAuthentication()
-  console.log(user)
+  console.log('[LOGIN]', user)
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
