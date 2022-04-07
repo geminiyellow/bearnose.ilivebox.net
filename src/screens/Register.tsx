@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { SignUp } from "../components/Auth";
-
-import { Text, View } from '../components/Themed';
+import { SignUp } from "components/Auth";
+import { Text, View } from 'components/Themed';
 
 export default function Register() {
   return (

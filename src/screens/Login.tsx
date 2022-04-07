@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 import { Button } from "react-native-paper";
-import { Email, Github } from "../components/Auth";
-import { Text, View } from '../components/Themed';
-import { useAuthentication } from "../hooks/useAuthentication";
-import { RootTabScreenProps } from '../types';
+import { Email, Github } from "components/Auth";
+import { Text, View } from 'components/Themed';
+import { useAuthentication } from "hooks/useAuthentication";
+import { RootTabScreenProps } from 'types';
 
 export default function Login({navigation}: RootTabScreenProps<'TabOne'>) {
   const {user, signOut} = useAuthentication()
