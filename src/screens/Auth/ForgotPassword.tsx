@@ -65,7 +65,7 @@ const ForgotPassword = ({navigation}: ForgotPasswordProps) => {
         style={styles.submit}
         onPress={onCheckEmailClicked}
       >
-        {sent ? 'Done': 'Next'}
+        {sent ? 'Done' : 'Next'}
       </Button>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)"/>
       <Button onPress={() => navigation.navigate('Login')}>
