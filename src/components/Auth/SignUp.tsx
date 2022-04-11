@@ -1,8 +1,8 @@
 import { getAuth } from "firebase/auth";
+import { register } from "firebase/register";
 import { useMemo, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, TextInput } from "react-native-paper";
-import { register } from "firebase/register";
 
 const auth = getAuth()
 

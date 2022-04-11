@@ -1,7 +1,7 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { Button, HelperText, TextInput } from "react-native-paper";
+import { Button, TextInput } from "react-native-paper";
 
 const auth = getAuth()
 
@@ -39,7 +39,7 @@ const Email = () => {
         secureTextEntry={secure}
         right={
           <TextInput.Icon
-            name={secure ? 'eye-off': 'eye'}
+            name={secure ? 'eye-off' : 'eye'}
             onPress={() => setSecure(!secure)}
           />
         }
